@@ -11,7 +11,7 @@ A Python3-based program for the coil system. Ported from C code.
 * Multithreading module for controlling multiple agents according to the feedback data from the cameras.
 * Preview window (60 Hz) for the X, Y, and Z magnetic field.
 * Controlling the magnetic field with a Joystick controller.
-            
+
 Contents
 --------------------
 
@@ -43,12 +43,12 @@ Contents
 
 ### Installation
 
-New(Apr 6, 2018): Updated "autoInstall.sh" that helps install all packages automatically. Many thanks to Omidy. The file can be found in "utilities". 
+New(Apr 6, 2018): Updated "autoInstall.sh" that helps install all packages automatically. Many thanks to Omidy. The file can be found in "utilities".
 
 ```
 1. Download "autoInstall.sh" to your local folder.
 
-2. Download "s826 linux driver" (http://www.sensoray.com/PCI_Express_digital_output_826.htm) and "pydc139" (https://github.com/jordens/pydc1394). 
+2. Download "s826 linux driver" (http://www.sensoray.com/PCI_Express_digital_output_826.htm) and "pydc139" (https://github.com/jordens/pydc1394).
 
 3. Name the extracted folders as "s826" and "pydc1394". Put them in the same directory as "autoInstall.sh".
 
@@ -128,7 +128,7 @@ main.py
 
 callbacks.py
 │
-└───mathfx.py [some macros for maths] 
+└───mathfx.py [some macros for maths]
 └───syntax.py [highlight the keywords in GUI editor_vision]
 |
 └───fieldManager.py [send commands to s826; store XYZ field strength]
@@ -172,7 +172,7 @@ If you want to have a higher fps, you need to increase the buffersize when initi
 
 Both USB camera (including the webcam on your laptop) and Firewire cameras are supported.
 
-You can enable/disable the second camera by commenting out the following line in "callbacks.py": 
+You can enable/disable the second camera by commenting out the following line in "callbacks.py":
 
 ```
 vision2 = Vision(index=2,type='firewire',guid=2672909588927744,buffersize=10)
@@ -180,7 +180,7 @@ vision2 = Vision(index=2,type='firewire',guid=2672909588927744,buffersize=10)
 
 Note: In this example program, all the filters and object detection algorithms apply to the 1st camera only.
 
-If you want to use a USB camera instead, change it to 
+If you want to use a USB camera instead, change it to
 
 ```
 vision2 = Vision(index=2,type='usb',guid=XXXX,buffersize=XX)
@@ -227,7 +227,7 @@ from PS3Controller import DualShock
 joystick = DualShock()
 ```
 
-Although we only tested a PS3 Dualshock controller connected via USB, you should be able to work with any controller. (Try using "lsusb" command and "dmesg" command in the terminal to see if the controller is detected.) 
+Although we only tested a PS3 Dualshock controller connected via USB, you should be able to work with any controller. (Try using "lsusb" command and "dmesg" command in the terminal to see if the controller is detected.)
 
 The available input for a PS3 controllers are 6 axis input and 16 button inputs.
 
@@ -284,6 +284,6 @@ Please refer to the *drawing()* in subThread.py.
 
 1. The program always crashes on the first time after system startup.
 
-2. If a game controller is used, segmentation fault occurs when exiting the program. 
+2. If a game controller is used, segmentation fault occurs when exiting the program.
 
 3. Segmentation fault occurs when the user tries to record the videos of multiple cameras simultaneously. (When *self.vision.stopRecording()* is executed)
